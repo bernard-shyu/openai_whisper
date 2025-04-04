@@ -1,6 +1,6 @@
-numba
-numpy
-torch
+## numba   << removed per NVIDIA/jetson-containers
+## numpy   << removed per NVIDIA/jetson-containers
+## torch   << removed per NVIDIA/jetson-containers
 tqdm
 more-itertools
 tiktoken

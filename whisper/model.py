@@ -122,7 +122,7 @@ class MultiHeadAttention(nn.Module):
 
         if SDPA_AVAILABLE and MultiHeadAttention.use_sdpa:
             a = scaled_dot_product_attention(
-                q, k, v, is_causal=mask is not None and n_ctx > 1
+                q, k, v, is_causal=True if mask is not None and n_ctx > 1 else False      ## Fix "TypeError: scaled_dot_product_attention(): argument 'is_causal' must be bool, not Tensor", when loading Whisper model with TensorRT
             )
             out = a.permute(0, 2, 1, 3).flatten(start_dim=2)
             qk = None
